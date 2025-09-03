@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import css from "./not-found.module.css";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "This page does not exists anymore",
+};
 
 const NotFound = () => {
   return (
