@@ -1,5 +1,5 @@
 import axios from "axios";
-import { type Note, type NoteTag } from "../types/note";
+import { NewNote, type Note } from "../types/note";
 
 const axiosInst = axios.create({
   baseURL: "https://notehub-public.goit.study/api",
@@ -45,13 +45,13 @@ export const fetchNoteById = async (id: string): Promise<Note> => {
 };
 
 //* === CREATE === *
-interface newTaskProp {
-  title: string;
-  content: string;
-  tag: NoteTag;
-}
+// interface newTaskProp {
+//   title: string;
+//   content: string;
+//   tag: NoteTag;
+// }
 
-export const createNote = async (newTask: newTaskProp): Promise<Note> => {
+export const createNote = async (newTask: NewNote): Promise<Note> => {
   const createNoteResponse = await axiosInst.post<Note>("/notes", newTask);
   console.log(createNoteResponse.data);
   return createNoteResponse.data;
